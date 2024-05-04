@@ -1,4 +1,4 @@
-tripcities,date,people,num_people
+arrival_city,date,people,num_people
 Amsterdam,2024-01-19,"['Monica Osborn', 'Zane Osborne']",2
 Amsterdam,2024-01-20,"['Monica Osborn', 'Zane Osborne']",2
 Amsterdam,2024-01-21,"['Monica Osborn', 'Zane Osborne']",2
