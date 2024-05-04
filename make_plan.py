@@ -98,9 +98,9 @@ def best_flight(orig, dest, departureDate, returnDate):
     bestFlight = {}
     minPrice = 9999
     for flight in flightsPossible:
-        if int(flight['price'][1:]) < minPrice:
+        if int(flight["price"][1:]) < minPrice:
             bestFlight = flight
-            minPrice = int(flight['price'][1:])
+            minPrice = int(flight["price"][1:])
 
     return bestFlight
 
@@ -124,18 +124,27 @@ def get_allEvents(city, arrivalTime, departureTime):
     return availableEvents
 
 
+def get_allEvents(events,city, date):
+    availableEvents = events[
+        (events["City"] == city)
+        & (events["Local Date"] == date)
+    ]
+
+    return availableEvents.to_dict(orient="records")
+
+
 def get_fake_events():
     events = {
         "Barcelona": [
-            {"Name": "Concert", "Type": "music", "Date": "2024-02-01"},
-            {"Name": "Football match", "Type": "sports", "Date": "2024-02-01"},
-            {"Name": "Food festival", "Type": "food", "Date": "2024-02-01"},
+            {"Event Name": "Concert", "Type": "music", "Date": "2024-02-01"},
+            {"Event Name": "Football match", "Type": "sports", "Date": "2024-02-01"},
+            {"Event Name": "Food festival", "Type": "food", "Date": "2024-02-01"},
         ],
         "Paris": [
-            {"Name": "Concert", "Type": "music", "Date": "2024-02-01"},
-            {"Name": "Football match", "Type": "sports", "Date": "2024-02-01"},
-            {"Name": "Food festival", "Type": "food", "Date": "2024-02-01"},
-        ]
+            {"Event Name": "Concert", "Type": "music", "Date": "2024-02-01"},
+            {"Event Name": "Football match", "Type": "sports", "Date": "2024-02-01"},
+            {"Event Name": "Food festival", "Type": "food", "Date": "2024-02-01"},
+        ],
     }
     return events
 
@@ -151,7 +160,6 @@ def get_fake_interests():
 
 def get_interests_from_df(df, people):
     df = df[df["Traveller Name"].isin(people)]
-    # use iterrows
     interests = {
         user: activities
         for user, activities in zip(df["Traveller Name"], df["Activities"])
@@ -168,7 +176,7 @@ from sentence_transformers import SentenceTransformer, util
 
 class Trip:
     def __init__(
-            self, user, interests, depart_city, arrival_city, depart_date, return_date
+        self, user, interests, depart_city, arrival_city, depart_date, return_date
     ):
         self.user = user
         self.interests = interests
@@ -182,8 +190,10 @@ class Trip:
         self.friends = []
 
     def add_trip_features(self, trips, people_in_cities, events, embedding_model):
-        self.depart_flight = suggest_flight()
-        self.return_flight = suggest_flight()
+        self.depart_flight = suggest_flight(self.depart_city, self.arrival_city)
+        self.return_flight = suggest_flight(self.arrival_city, self.depart_city)
+        previous_interests = []
+        previous_events = []
 
         # for each day in the trip
         for day in pd.date_range(self.depart_date, self.return_date):
@@ -191,16 +201,22 @@ class Trip:
             people_in_city = people_in_cities[
                 (people_in_cities["arrival_city"] == self.arrival_city)
                 & (people_in_cities["date"] == day)
-                ]["people"].values[0]
+            ]["people"].values[0]
 
             # get the events in the city
-            city_events = events[self.arrival_city]
+            city_events = get_allEvents(events, self.arrival_city, day)
             # todo filter on date and inputs as df
             interests = get_interests_from_df(trips, people_in_city)
             # suggest an event
             event = suggest_event(
-                city_events, interests, embedding_model
+                city_events,
+                interests,
+                embedding_model,
+                previous_interests,
+                previous_events,
             )
+            previous_interests = event[3]
+            previous_events = event[4]
 
             self.friends.append(people_in_city)
             self.events.append(event)
@@ -212,18 +228,36 @@ class Trip:
         question = """The following are events happening in {city}.
 {events}
 Make a vacation plan lasting {n_days} days to attend those events. Render it as a markdown and add emojis to make it more engaging."""
-        event_names = [n[1]['Name'] for n in self.events]
-        question = question.format(city=self.arrival_city, events=str.join("\n", event_names), n_days=len(self.events)
-                                   )
-        messages = [
-            {"role": "user", "content": question}
-        ]
+        event_names = [f'Day {i+1}: {n[0]["Event Name"]}' for i, n in enumerate(self.events)]
+        question = question.format(
+            city=self.arrival_city,
+            events=str.join("\n", event_names),
+            n_days=len(self.events),
+        )
+        messages = [{"role": "user", "content": question}]
 
         encodeds = tokenizer.apply_chat_template(messages, return_tensors="pt")
         encodeds = encodeds.to(answers_model.device)
-        generated_ids = answers_model.generate(encodeds, max_new_tokens=400, do_sample=True)
-        decoded = tokenizer.batch_decode(generated_ids)[0].split("<|end_header_id|>\n\n")[-1]
+        # with torch.no_grad():
+        #     generated_ids = answers_model.module.generate(encodeds, max_new_tokens=100)
+        # decoded = tokenizer.decode(generated_ids[0]).split(
+        #     "<|end_header_id|>\n\n"
+        # )[-1]
+        generated_ids = answers_model.generate(
+            encodeds, max_new_tokens=800, do_sample=True
+        )
+        decoded = tokenizer.batch_decode(generated_ids)[0].split(
+            "<|end_header_id|>\n\n"
+        )[-1]
+
         return decoded, question
+
+
+from accelerate import init_empty_weights
+from transformers import AutoConfig, AutoModelForCausalLM
+from accelerate import load_checkpoint_and_dispatch
+from transformers.integrations import HfDeepSpeedConfig
+import deepspeed
 
 
 def init_llm_models():
@@ -231,35 +265,92 @@ def init_llm_models():
     login(token=os.environ["HF_TOKEN"])
     embedding_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
     model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
+
+    # ds_config = {
+    #     "fp16": {"enabled": False},
+    #     "bf16": {"enabled": True},
+    #     "zero_optimization": {
+    #         "stage": 3,
+    #         "offload_param": {"device": "cpu", "pin_memory": True},
+    #     },
+    #     "steps_per_print": 2000,
+    #     "wall_clock_breakdown": False,
+    #     "train_batch_size": 1,
+    # }
+    # dschf = HfDeepSpeedConfig(ds_config)  # keep this object alive
     answers_model = AutoModelForCausalLM.from_pretrained(
-        model_name, device_map="auto", torch_dtype=torch.float16
+        model_name,
+        device_map="auto",
+        torch_dtype=torch.bfloat16,
+        load_in_4bit=True,
+        offload_state_dict=True,
+        # llm_int8_enable_fp32_cpu_offload=True,
     )
+
+    # model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.bfloat16)
+
+    # initialise Deepspeed ZeRO and store only the engine object
+    # ds_engine = deepspeed.initialize(model=model, config_params=ds_config)[0]
+    # ds_engine.module.eval()  # inference
+
     tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B-Instruct")
+    # return tokenizer, ds_engine, embedding_model
     return tokenizer, answers_model, embedding_model
 
 
-def suggest_event(events, user_interests, embedding_model):
+from functools import reduce
+from collections import Counter
+from numpy.random import choice
+import numpy as np
+
+def suggest_event(events, user_interests, embedding_model,previous_interests=[],previous_ev_name=[]):
     """given a list of events choose the most appropiate one for that day based on interests of each user,
     Input: list of events, dictionary of users and interests
     """
+    events_embeddings = embedding_model.encode([event["Event Name"] for event in events])
+    # if there is an intersection of interestes use that
+    # intersecton of list of sets
 
-    # Use a pipeline as a high-level helper
+    weighted_interests = dict(Counter([i for l in user_interests.values() for i in l]))
+    # subtract previous interests
+    for i in previous_interests:
+        if i in weighted_interests:
+            weighted_interests[i] /= 2
 
-    # model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+    interests_values = np.array(list(weighted_interests.values()))**4
+    p=interests_values / interests_values.sum()
+    chosen_interest = choice(
+        list(weighted_interests.keys()),
+        1,
+        p=p
+    )[0]
 
-    events_embeddings = embedding_model.encode([event["Name"] for event in events])
-
-    interests = str.join(",", {i for l in user_interests.values() for i in l})
-
-    interests_embeddings = embedding_model.encode(interests)
+    interests_embeddings = embedding_model.encode(chosen_interest)
     # compute similarity between events and interests
     similarities = util.pytorch_cos_sim(events_embeddings, interests_embeddings)
+    # half the similarity if the event has been chosen before
+    for i,e in enumerate(events):
+        if e["Event Name"] in previous_ev_name:
+            similarities[i] /= 2
 
-    argmax = similarities.argmax()
+    similarities = similarities.flatten().numpy()**4
+
+    # pick a random event based on similarity
+    event = choice(events, 1, p=similarities / similarities.sum())[0]
+
+    # event_num = similarities.argmax()
 
     # todo use chatbot after similarity
     # prompt = """Given the user interests
     # {interests}
     # Choose the most appropiate event for the day from the list of events
     # {events}"""
-    return argmax, events[argmax], similarities
+
+    previous_interests = previous_interests + [chosen_interest]
+    return (
+        event,
+        similarities,
+        dict(zip(weighted_interests.keys(),p)),
+        previous_interests,
+        previous_ev_name + [event["Event Name"]]
+    )
