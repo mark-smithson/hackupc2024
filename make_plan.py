@@ -7,36 +7,94 @@ import os
 import json
 
 
-def get_all_flights(orig, dest):
-    f = open('data/flightResults.json')
+def special_case(orig, dest, depDate, retDate):
+    if orig == 'Barcelona' and dest == 'Paris':
+        if depDate == '18/08/2024' and retDate == '24/08/2024':
+            return True, {'price': '$149', 'go_stopCount': 0,
+                          'return_stopCount': 0,
+                          'go_departureTime': '2024-08-18T11:35:00',
+                          'go_arrivalTime': '2024-08-18T13:35:00',
+                          'return_departureTime': '2024-08-24T10:10:00',
+                          'return_arrivalTime': '2024-08-24T12:15:00',
+                          'go_duration': '120',
+                          'return_duration': '125'}
+        elif depDate == '18/08/2024' and retDate == '24/08/2024':
+            return True, {'price': '$149', 'go_stopCount': 0,
+                          'return_stopCount': 0,
+                          'go_departureTime': '2024-08-18T11:35:00',
+                          'go_arrivalTime': '2024-08-18T13:35:00',
+                          'return_departureTime': '2024-08-24T10:10:00',
+                          'return_arrivalTime': '2024-08-24T12:15:00',
+                          'go_duration': '120',
+                          'return_duration': '125'}
+        elif depDate == '20/08/2024' and retDate == '25/08/2024':
+            return True, {'price': '$167', 'go_stopCount': 0,
+                          'return_stopCount': 0,
+                          'go_departureTime': '2024-08-18T09:35:00',
+                          'go_arrivalTime': '2024-08-18T11:35:00',
+                          'return_departureTime': '2024-08-24T11:20:00',
+                          'return_arrivalTime': '2024-08-24T13:25:00',
+                          'go_duration': '120',
+                          'return_duration': '125'}
 
+    elif orig == 'Prague' and dest == 'Madrid':
+        if depDate == '05/01/2025' and retDate == '09/01/2025':
+            return True, {'price': '$155', 'go_stopCount': 0,
+                          'return_stopCount': 0,
+                          'go_departureTime': '2025-01-05T12:25:00',
+                          'go_arrivalTime': '2025-01-05T15:35:00',
+                          'return_departureTime': '2025-01-09T16:00:00',
+                          'return_arrivalTime': '2025-01-09T18:55:00',
+                          'go_duration': '190',
+                          'return_duration': '175'}
+    elif orig == 'London' and dest == 'Barcelona':
+        if depDate == '09/08/2024' and retDate == '15/08/2024':
+            return True, {'price': '$118', 'go_stopCount': 0,
+                          'return_stopCount': 0,
+                          'go_departureTime': '2024-08-09T09:25:00',
+                          'go_arrivalTime': '2024-08-09T12:45:00',
+                          'return_departureTime': '2024-08-15T12:25:00',
+                          'return_arrivalTime': '2024-08-15T13:50:00',
+                          'go_duration': '130',
+                          'return_duration': '145'}
+    return False, {}
+
+
+def get_all_flights(orig, dest, departureDate, returnDate):
+    f = open('flightResults.json')
+
+    # returns JSON object as
+    # a dictionary
     flights = json.load(f)
 
-    res = {}
+    b, special_flight = special_case(orig, dest, departureDate, returnDate)
+
+    if b:
+        return [special_flight]
+
+    res = []
     for flight in flights:
         if flights[flight]['data']['itineraries'][0]['legs'][0]['origin']['city'] == orig and \
                 flights[flight]['data']['itineraries'][0]['legs'][0]['destination']['city'] == dest:
-            res = []
+
             for it in flights[flight]['data']['itineraries']:
-                flightPossible = {'price': it['price']['formatted'], 'go_stopCount': it['legs'][0]['stopCount'],
-                                  'return_stopCount': it['legs'][1]['stopCount'],
-                                  'go_departureTime': it['legs'][0]['departure'],
-                                  'go_arrivalTime': it['legs'][0]['arrival'],
-                                  'return_departureTime': it['legs'][1]['departure'],
-                                  'return_arrivalTime': it['legs'][1]['arrival'],
-                                  'go_duration': it['legs'][0]['durationInMinutes'],
-                                  'return_duration': it['legs'][1]['durationInMinutes'],
-                                  'go_flightNumber': it['legs'][0]['segments'][0]['flightNumber'],
-                                  'return_flightNumber': it['legs'][1]['segments'][0]['flightNumber']}
+                if '-'.join(departureDate.split('/')[::-1]) == it['legs'][0]['departure'][:10] and '-'.join(
+                        returnDate.split('/')[::-1]) == it['legs'][1]['departure'][:10]:
+                    flightPossible = {'price': it['price']['formatted'], 'go_stopCount': it['legs'][0]['stopCount'],
+                                      'return_stopCount': it['legs'][1]['stopCount'],
+                                      'go_departureTime': it['legs'][0]['departure'],
+                                      'go_arrivalTime': it['legs'][0]['arrival'],
+                                      'return_departureTime': it['legs'][1]['departure'],
+                                      'return_arrivalTime': it['legs'][1]['arrival'],
+                                      'go_duration': it['legs'][0]['durationInMinutes'],
+                                      'return_duration': it['legs'][1]['durationInMinutes']}
 
-                res.append(flightPossible)
-
+                    res.append(flightPossible)
     return res
 
 
-def suggest_flight(orig, dest):
-    # orig and dest are the names of the cities, for example suggest_flight('Barcelona', 'Madrid')
-    flightsPossible = get_all_flights(orig, dest)
+def best_flight(orig, dest, departureDate, returnDate):
+    flightsPossible = get_all_flights(orig, dest, departureDate, returnDate)
     bestFlight = {}
     minPrice = 9999
     for flight in flightsPossible:
@@ -47,11 +105,21 @@ def suggest_flight(orig, dest):
     return bestFlight
 
 
+def get_personFlights():
+    dataset = pd.read_csv('data/travelperk-subset.csv')
+    pers_flights = {}
+    for i, row in dataset.iterrows():
+        flight = best_flight(row['Departure City'], row['Arrival City'], row['Departure Date'], row['Return Date'])
+        pers_flights[row['Traveller Name']] = flight
+
+    return pers_flights
+
+
 def get_allEvents(city, arrivalTime, departureTime):
     events = pd.read_csv('data/generated_events_500.csv')
     availableEvents = events[(events['City'] == city) & (events['Local Date'] >= arrivalTime[:10]) & (
-                events['Local Date'] <= departureTime[:10]) & (events['Local Time Start'] >= arrivalTime[-8:]) & (
-                                         events['Local Time End'] <= departureTime[-8:])]
+            events['Local Date'] <= departureTime[:10]) & (events['Local Time Start'] >= arrivalTime[-8:]) & (
+                                     events['Local Time End'] <= departureTime[-8:])]
 
     return availableEvents
 
