@@ -3,6 +3,7 @@ from transformers import pipeline
 from huggingface_hub import login
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
+import os
 
 def suggest_flight():
     # given list of flights and people travelling on the same date chose the best flight
@@ -113,9 +114,7 @@ Make a vacation plan lasting {n_days} days to attend those events. Render it as 
 
 def init_llm_models():
     # Use a pipeline as a high-level helper
-
-
-    login(token="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")
+    login(token=os.environ["HF_TOKEN"])
     embedding_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
     model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
     answers_model = AutoModelForCausalLM.from_pretrained(
