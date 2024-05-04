@@ -4,10 +4,47 @@ from huggingface_hub import login
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import os
+import json
 
-def suggest_flight():
-    # given list of flights and people travelling on the same date chose the best flight
-    pass
+
+def get_all_flights(orig, dest):
+    f = open('data/flightResults.json')
+
+    flights = json.load(f)
+
+    res = {}
+    for flight in flights:
+        if flights[flight]['data']['itineraries'][0]['legs'][0]['origin']['city'] == orig and \
+                flights[flight]['data']['itineraries'][0]['legs'][0]['destination']['city'] == dest:
+            res = []
+            for it in flights[flight]['data']['itineraries']:
+                flightPossible = {'price': it['price']['formatted'], 'go_stopCount': it['legs'][0]['stopCount'],
+                                  'return_stopCount': it['legs'][1]['stopCount'],
+                                  'go_departureTime': it['legs'][0]['departure'],
+                                  'go_arrivalTime': it['legs'][0]['arrival'],
+                                  'return_departureTime': it['legs'][1]['departure'],
+                                  'return_arrivalTime': it['legs'][1]['arrival'],
+                                  'go_duration': it['legs'][0]['durationInMinutes'],
+                                  'return_duration': it['legs'][1]['durationInMinutes'],
+                                  'go_flightNumber': it['legs'][0]['segments'][0]['flightNumber'],
+                                  'return_flightNumber': it['legs'][1]['segments'][0]['flightNumber']}
+
+                res.append(flightPossible)
+
+    return res
+
+
+def suggest_flight(orig, dest):
+    # orig and dest are the names of the cities, for example suggest_flight('Barcelona', 'Madrid')
+    flightsPossible = get_all_flights(orig, dest)
+    bestFlight = {}
+    minPrice = 9999
+    for flight in flightsPossible:
+        if int(flight['price'][1:]) < minPrice:
+            bestFlight = flight
+            minPrice = int(flight['price'][1:])
+
+    return bestFlight
 
 
 def get_fake_events():
@@ -46,7 +83,6 @@ def get_interests_from_df(df, people):
 
 
 def demo_suggest_event():
-
     print(suggest_event(get_fake_events()["Barcelona"], get_fake_interests()))
 
 
@@ -55,7 +91,7 @@ from sentence_transformers import SentenceTransformer, util
 
 class Trip:
     def __init__(
-        self, user, interests, depart_city, arrival_city, depart_date, return_date
+            self, user, interests, depart_city, arrival_city, depart_date, return_date
     ):
         self.user = user
         self.interests = interests
@@ -68,7 +104,7 @@ class Trip:
         self.events = []
         self.friends = []
 
-    def add_trip_features(self, trips, people_in_cities, events,embedding_model):
+    def add_trip_features(self, trips, people_in_cities, events, embedding_model):
         self.depart_flight = suggest_flight()
         self.return_flight = suggest_flight()
 
@@ -78,7 +114,7 @@ class Trip:
             people_in_city = people_in_cities[
                 (people_in_cities["arrival_city"] == self.arrival_city)
                 & (people_in_cities["date"] == day)
-            ]["people"].values[0]
+                ]["people"].values[0]
 
             # get the events in the city
             city_events = events[self.arrival_city]
@@ -86,7 +122,7 @@ class Trip:
             interests = get_interests_from_df(trips, people_in_city)
             # suggest an event
             event = suggest_event(
-                city_events, interests,embedding_model
+                city_events, interests, embedding_model
             )
 
             self.friends.append(people_in_city)
@@ -95,22 +131,23 @@ class Trip:
 
         pass
 
-    def get_llm_trip_summary(self,tokenizer,answers_model):
+    def get_llm_trip_summary(self, tokenizer, answers_model):
         question = """The following are events happening in {city}.
 {events}
 Make a vacation plan lasting {n_days} days to attend those events. Render it as a markdown and add emojis to make it more engaging."""
         event_names = [n[1]['Name'] for n in self.events]
         question = question.format(city=self.arrival_city, events=str.join("\n", event_names), n_days=len(self.events)
-                        ) 
+                                   )
         messages = [
-        {"role": "user", "content": question}
+            {"role": "user", "content": question}
         ]
 
         encodeds = tokenizer.apply_chat_template(messages, return_tensors="pt")
         encodeds = encodeds.to(answers_model.device)
         generated_ids = answers_model.generate(encodeds, max_new_tokens=400, do_sample=True)
         decoded = tokenizer.batch_decode(generated_ids)[0].split("<|end_header_id|>\n\n")[-1]
-        return decoded,question
+        return decoded, question
+
 
 def init_llm_models():
     # Use a pipeline as a high-level helper
@@ -118,12 +155,13 @@ def init_llm_models():
     embedding_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
     model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
     answers_model = AutoModelForCausalLM.from_pretrained(
-        model_name , device_map="auto", torch_dtype=torch.float16
+        model_name, device_map="auto", torch_dtype=torch.float16
     )
     tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B-Instruct")
     return tokenizer, answers_model, embedding_model
 
-def suggest_event(events, user_interests,embedding_model):
+
+def suggest_event(events, user_interests, embedding_model):
     """given a list of events choose the most appropiate one for that day based on interests of each user,
     Input: list of events, dictionary of users and interests
     """
