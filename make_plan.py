@@ -1,4 +1,8 @@
 import pandas as pd
+from transformers import pipeline
+from huggingface_hub import login
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
 
 def suggest_flight():
     # given list of flights and people travelling on the same date chose the best flight
@@ -63,7 +67,7 @@ class Trip:
         self.events = []
         self.friends = []
 
-    def add_trip_features(self, trips, people_in_cities, events):
+    def add_trip_features(self, trips, people_in_cities, events,embedding_model):
         self.depart_flight = suggest_flight()
         self.return_flight = suggest_flight()
 
@@ -81,7 +85,7 @@ class Trip:
             interests = get_interests_from_df(trips, people_in_city)
             # suggest an event
             event = suggest_event(
-                city_events, interests
+                city_events, interests,embedding_model
             )
 
             self.friends.append(people_in_city)
@@ -90,12 +94,37 @@ class Trip:
 
         pass
 
-    def get_llm_trip_summary(self):
-        pass
+    def get_llm_trip_summary(self,tokenizer,answers_model):
+        question = """The following are events happening in {city}.
+{events}
+Make a vacation plan lasting {n_days} days to attend those events. Render it as a markdown and add emojis to make it more engaging."""
+        event_names = [n[1]['Name'] for n in self.events]
+        question = question.format(city=self.arrival_city, events=str.join("\n", event_names), n_days=len(self.events)
+                        ) 
+        messages = [
+        {"role": "user", "content": question}
+        ]
 
-model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+        encodeds = tokenizer.apply_chat_template(messages, return_tensors="pt")
+        encodeds = encodeds.to(answers_model.device)
+        generated_ids = answers_model.generate(encodeds, max_new_tokens=400, do_sample=True)
+        decoded = tokenizer.batch_decode(generated_ids)[0].split("<|end_header_id|>\n\n")[-1]
+        return decoded,question
 
-def suggest_event(events, user_interests):
+def init_llm_models():
+    # Use a pipeline as a high-level helper
+
+
+    login(token="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")
+    embedding_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+    model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
+    answers_model = AutoModelForCausalLM.from_pretrained(
+        model_name , device_map="auto", torch_dtype=torch.float16
+    )
+    tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B-Instruct")
+    return tokenizer, answers_model, embedding_model
+
+def suggest_event(events, user_interests,embedding_model):
     """given a list of events choose the most appropiate one for that day based on interests of each user,
     Input: list of events, dictionary of users and interests
     """
@@ -104,11 +133,11 @@ def suggest_event(events, user_interests):
 
     # model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
-    events_embeddings = model.encode([event["Name"] for event in events])
+    events_embeddings = embedding_model.encode([event["Name"] for event in events])
 
     interests = str.join(",", {i for l in user_interests.values() for i in l})
 
-    interests_embeddings = model.encode(interests)
+    interests_embeddings = embedding_model.encode(interests)
     # compute similarity between events and interests
     similarities = util.pytorch_cos_sim(events_embeddings, interests_embeddings)
 
