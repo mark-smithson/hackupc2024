@@ -1,0 +1,257 @@
+[
+    {
+        "arrival_city": "Barcelona",
+        "date": 1723161600000,
+        "people": [
+            "Anika Mccoy",
+            "Dante Kline"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "Barcelona",
+        "date": 1723248000000,
+        "people": [
+            "Anika Mccoy",
+            "Dante Kline"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "Barcelona",
+        "date": 1723334400000,
+        "people": [
+            "Anika Mccoy",
+            "Dante Kline"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "Barcelona",
+        "date": 1723420800000,
+        "people": [
+            "Anika Mccoy",
+            "Dante Kline"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "Barcelona",
+        "date": 1723507200000,
+        "people": [
+            "Anika Mccoy",
+            "Dante Kline"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "Barcelona",
+        "date": 1723593600000,
+        "people": [
+            "Anika Mccoy",
+            "Dante Kline"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "London",
+        "date": 1724025600000,
+        "people": [
+            "Aliza Mullins",
+            "Paula Hays"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "London",
+        "date": 1724112000000,
+        "people": [
+            "Aliza Mullins",
+            "Paula Hays"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "London",
+        "date": 1724198400000,
+        "people": [
+            "Aliza Mullins",
+            "Paula Hays"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "London",
+        "date": 1724284800000,
+        "people": [
+            "Aliza Mullins",
+            "Paula Hays"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "London",
+        "date": 1724371200000,
+        "people": [
+            "Aliza Mullins",
+            "Paula Hays"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "London",
+        "date": 1724457600000,
+        "people": [
+            "Aliza Mullins",
+            "Paula Hays"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "London",
+        "date": 1724544000000,
+        "people": [
+            "Aliza Mullins",
+            "Paula Hays"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "Madrid",
+        "date": 1736035200000,
+        "people": [
+            "Charlotte Shepherd",
+            "Regan Solis"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "Madrid",
+        "date": 1736121600000,
+        "people": [
+            "Charlotte Shepherd",
+            "Regan Solis"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "Madrid",
+        "date": 1736208000000,
+        "people": [
+            "Charlotte Shepherd",
+            "Regan Solis"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "Madrid",
+        "date": 1736294400000,
+        "people": [
+            "Charlotte Shepherd",
+            "Regan Solis"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "Madrid",
+        "date": 1736380800000,
+        "people": [
+            "Charlotte Shepherd",
+            "Regan Solis"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "Madrid",
+        "date": 1736726400000,
+        "people": [
+            "Charlotte Shepherd",
+            "Simeon Mercer"
+        ],
+        "num_people": 2
+    },
+    {
+        "arrival_city": "Paris",
+        "date": 1723939200000,
+        "people": [
+            "Anderson Hudson",
+            "Parker Robertson",
+            "Zane Osborne"
+        ],
+        "num_people": 3
+    },
+    {
+        "arrival_city": "Paris",
+        "date": 1724025600000,
+        "people": [
+            "Anderson Hudson",
+            "Parker Robertson",
+            "Zane Osborne"
+        ],
+        "num_people": 3
+    },
+    {
+        "arrival_city": "Paris",
+        "date": 1724112000000,
+        "people": [
+            "Adrianna Price",
+            "Anderson Hudson",
+            "Parker Robertson",
+            "Zane Osborne"
+        ],
+        "num_people": 4
+    },
+    {
+        "arrival_city": "Paris",
+        "date": 1724198400000,
+        "people": [
+            "Adrianna Price",
+            "Anderson Hudson",
+            "Parker Robertson",
+            "Zane Osborne"
+        ],
+        "num_people": 4
+    },
+    {
+        "arrival_city": "Paris",
+        "date": 1724284800000,
+        "people": [
+            "Adrianna Price",
+            "Anderson Hudson",
+            "Parker Robertson",
+            "Zane Osborne"
+        ],
+        "num_people": 4
+    },
+    {
+        "arrival_city": "Paris",
+        "date": 1724371200000,
+        "people": [
+            "Adrianna Price",
+            "Anderson Hudson",
+            "Parker Robertson",
+            "Zane Osborne"
+        ],
+        "num_people": 4
+    },
+    {
+        "arrival_city": "Paris",
+        "date": 1724457600000,
+        "people": [
+            "Adrianna Price",
+            "Anderson Hudson",
+            "Parker Robertson",
+            "Zane Osborne"
+        ],
+        "num_people": 4
+    },
+    {
+        "arrival_city": "Paris",
+        "date": 1724544000000,
+        "people": [
+            "Adrianna Price",
+            "Parker Robertson"
+        ],
+        "num_people": 2
+    }
+]

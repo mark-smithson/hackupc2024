@@ -1,15 +1,15 @@
-Trip ID,Traveller Name,Departure Date,Return Date,Departure City,Arrival City
-1,Anderson Hudson,18/08/2024,24/08/2024,Barcelona,Paris
-2,Zane Osborne,18/08/2024,24/08/2024,Barcelona,Paris
-3,Adrianna Price,20/08/2024,25/08/2024,Barcelona,Paris
-4,Regan Solis,05/01/2025,09/01/2025,Prague,Madrid
-5,Charlotte Shepherd,05/01/2025,13/01/2025,Prague,Madrid
-6,Paula Hays,19/08/2024,25/08/2024,Paris,London
-7,Aliza Mullins,19/08/2024,25/08/2024,Paris,London
-8,Elisabeth Holland,15/07/2024,18/07/2024,Barcelona,Prague
-9,Dante Kline,09/08/2024,15/08/2024,London,Barcelona
-10,Anika Mccoy,09/08/2024,14/08/2024,London,Barcelona
-11,Simeon Mercer,13/01/2025,25/01/2025,Barcelona,Madrid
-12,Tessa Wilkerson,02/03/2025,07/03/2025,London,Madrid
-13,Augustus Landry,12/12/2024,17/12/2024,London,Prague
-14,Parker Robertson,17/08/2024,28/08/2024,Barcelona,Paris
+Trip ID,Traveller Name,Departure Date,Return Date,Departure City,Arrival City,Activities
+1,Anderson Hudson,18/08/2024,24/08/2024,Barcelona,Paris,"Scavenger Hunts, Pub Crawls, Cooking Classes, Concerts, Segway Tours"
+2,Zane Osborne,18/08/2024,24/08/2024,Barcelona,Paris,"Football Matches, Escape Rooms, Theater Performances, Kayaking, Zip Line Adventures"
+3,Adrianna Price,20/08/2024,25/08/2024,Barcelona,Paris,"Theater Performances, Football Matches, Kayaking, Cultural Festivals, Segway Tours"
+4,Regan Solis,05/01/2025,09/01/2025,Prague,Madrid,"Cooking Classes, Concerts, Beach Volleyball, Scavenger Hunts, Theme Parks"
+5,Charlotte Shepherd,05/01/2025,13/01/2025,Prague,Madrid,"Theme Parks, Hot Air Balloon Rides, Rock Climbing, Football Matches, Art Exhibitions"
+6,Paula Hays,19/08/2024,25/08/2024,Paris,London,"Kayaking, Football Matches, Sightseeing Tours, Theater Performances, Art Exhibitions"
+7,Aliza Mullins,19/08/2024,25/08/2024,Paris,London,"Theme Parks, Scavenger Hunts, Beach Volleyball, Food Tours, Kayaking"
+8,Elisabeth Holland,15/07/2024,18/07/2024,Barcelona,Prague,"Art Exhibitions, Cultural Festivals, Zip Line Adventures, Hiking Excursions, River Cruises"
+9,Dante Kline,09/08/2024,15/08/2024,London,Barcelona,"Food Tours, Segway Tours, Football Matches, Hiking Excursions, Dancing Classes"
+10,Anika Mccoy,09/08/2024,14/08/2024,London,Barcelona,"Beach Volleyball, Karaoke Nights, Theme Parks, Group Cycling Tours, Wine Tasting"
+11,Simeon Mercer,13/01/2025,25/01/2025,Barcelona,Madrid,"Segway Tours, Theme Parks, Group Cycling Tours, Theater Performances, Scavenger Hunts"
+12,Tessa Wilkerson,02/03/2025,07/03/2025,London,Madrid,"Zip Line Adventures, Karaoke Nights, River Cruises, Food Tours, Wine Tasting"
+13,Augustus Landry,12/12/2024,17/12/2024,London,Prague,"Dancing Classes, Food Tours, Hot Air Balloon Rides, Hiking Excursions, Group Cycling Tours"
+14,Parker Robertson,17/08/2024,28/08/2024,Barcelona,Paris,"Scavenger Hunts, Dancing Classes, Karaoke Nights, Cultural Festivals, Theater Performances"

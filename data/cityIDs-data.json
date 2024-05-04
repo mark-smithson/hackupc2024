@@ -1,1 +1,488 @@
-{"Madrid": {"data": [{"presentation": {"title": "Madrid", "suggestionTitle": "Madrid (MAD)", "subtitle": "Spain", "id": "eyJlIjoiOTU1NjUwNzciLCJzIjoiTUFEIiwiaCI6IjI3NTQ0ODUwIiwidCI6IkFJUlBPUlQifQ=="}, "navigation": {"entityId": "95565077", "entityType": "AIRPORT", "localizedName": "Madrid", "relevantFlightParams": {"skyId": "MAD", "entityId": "95565077", "flightPlaceType": "AIRPORT", "localizedName": "Madrid"}, "relevantHotelParams": {"entityId": "27544850", "entityType": "CITY", "localizedName": "Madrid"}}}], "status": true, "message": "Successful"}, "Barcelona": {"data": [{"presentation": {"title": "Barcelona", "suggestionTitle": "Barcelona (BCN)", "subtitle": "Spain", "id": "eyJlIjoiOTU1NjUwODUiLCJzIjoiQkNOIiwiaCI6IjI3NTQ4MjgzIiwidCI6IkFJUlBPUlQifQ=="}, "navigation": {"entityId": "95565085", "entityType": "AIRPORT", "localizedName": "Barcelona", "relevantFlightParams": {"skyId": "BCN", "entityId": "95565085", "flightPlaceType": "AIRPORT", "localizedName": "Barcelona"}, "relevantHotelParams": {"entityId": "27548283", "entityType": "CITY", "localizedName": "Barcelona"}}}, {"presentation": {"title": "Barcelona", "suggestionTitle": "Barcelona (BLA)", "subtitle": "Venezuela", "id": "eyJlIjoiMTI4NjY3MzE2IiwicyI6IkJMQSIsImgiOiIyNzUzOTQ1NiIsInQiOiJBSVJQT1JUIn0="}, "navigation": {"entityId": "128667316", "entityType": "AIRPORT", "localizedName": "Barcelona", "relevantFlightParams": {"skyId": "BLA", "entityId": "128667316", "flightPlaceType": "AIRPORT", "localizedName": "Barcelona"}, "relevantHotelParams": {"entityId": "27539456", "entityType": "CITY", "localizedName": "Barcelona"}}}], "status": true, "message": "Successful"}, "Paris": {"data": [{"presentation": {"title": "Paris", "suggestionTitle": "Paris (Any)", "subtitle": "France", "id": "eyJlIjoiMjc1Mzk3MzMiLCJzIjoiUEFSSSIsImgiOiIyNzUzOTczMyIsInQiOiJDSVRZIn0="}, "navigation": {"entityId": "27539733", "entityType": "CITY", "localizedName": "Paris", "relevantFlightParams": {"skyId": "PARI", "entityId": "27539733", "flightPlaceType": "CITY", "localizedName": "Paris"}, "relevantHotelParams": {"entityId": "27539733", "entityType": "CITY", "localizedName": "Paris"}}}, {"presentation": {"title": "Paris Charles de Gaulle", "suggestionTitle": "Paris Charles de Gaulle (CDG)", "subtitle": "France", "id": "eyJlIjoiOTU1NjUwNDEiLCJzIjoiQ0RHIiwiaCI6IjI3NTM5NzMzIiwidCI6IkFJUlBPUlQifQ=="}, "navigation": {"entityId": "95565041", "entityType": "AIRPORT", "localizedName": "Paris Charles de Gaulle", "relevantFlightParams": {"skyId": "CDG", "entityId": "95565041", "flightPlaceType": "AIRPORT", "localizedName": "Paris Charles de Gaulle"}, "relevantHotelParams": {"entityId": "27539733", "entityType": "CITY", "localizedName": "Paris"}}}, {"presentation": {"title": "Paris Orly", "suggestionTitle": "Paris Orly (ORY)", "subtitle": "France", "id": "eyJlIjoiOTU1NjUwNDAiLCJzIjoiT1JZIiwiaCI6IjI3NTM5NzMzIiwidCI6IkFJUlBPUlQifQ=="}, "navigation": {"entityId": "95565040", "entityType": "AIRPORT", "localizedName": "Paris Orly", "relevantFlightParams": {"skyId": "ORY", "entityId": "95565040", "flightPlaceType": "AIRPORT", "localizedName": "Paris Orly"}, "relevantHotelParams": {"entityId": "27539733", "entityType": "CITY", "localizedName": "Paris"}}}, {"presentation": {"title": "Paris Beauvais", "suggestionTitle": "Paris Beauvais (BVA)", "subtitle": "France", "id": "eyJlIjoiOTU1NjYyNzgiLCJzIjoiQlZBIiwiaCI6IjI3NTM5NzMzIiwidCI6IkFJUlBPUlQifQ=="}, "navigation": {"entityId": "95566278", "entityType": "AIRPORT", "localizedName": "Paris Beauvais", "relevantFlightParams": {"skyId": "BVA", "entityId": "95566278", "flightPlaceType": "AIRPORT", "localizedName": "Paris Beauvais"}, "relevantHotelParams": {"entityId": "27539733", "entityType": "CITY", "localizedName": "Paris"}}}, {"presentation": {"title": "Montego Bay", "suggestionTitle": "Montego Bay (MBJ)", "subtitle": "Jamaica", "id": "eyJlIjoiOTk1Mzk2NjciLCJzIjoiTUJKIiwiaCI6IjI3NTQ0ODY0IiwidCI6IkFJUlBPUlQifQ=="}, "navigation": {"entityId": "99539667", "entityType": "AIRPORT", "localizedName": "Montego Bay", "relevantFlightParams": {"skyId": "MBJ", "entityId": "99539667", "flightPlaceType": "AIRPORT", "localizedName": "Montego Bay"}, "relevantHotelParams": {"entityId": "27544864", "entityType": "CITY", "localizedName": "Montego Bay"}}}, {"presentation": {"title": "Paros", "suggestionTitle": "Paros (PAS)", "subtitle": "Greece", "id": "eyJlIjoiMTA0MTIwMzMyIiwicyI6IlBBUyIsImgiOiIyNzU0NTI5NCIsInQiOiJBSVJQT1JUIn0="}, "navigation": {"entityId": "104120332", "entityType": "AIRPORT", "localizedName": "Paros", "relevantFlightParams": {"skyId": "PAS", "entityId": "104120332", "flightPlaceType": "AIRPORT", "localizedName": "Paros"}, "relevantHotelParams": {"entityId": "27545294", "entityType": "CITY", "localizedName": "Paros"}}}, {"presentation": {"title": "Kingston Norman Manley", "suggestionTitle": "Kingston Norman Manley (KIN)", "subtitle": "Jamaica", "id": "eyJlIjoiOTk1Mzk2MzYiLCJzIjoiS0lOIiwiaCI6IjI3NTQzODYzIiwidCI6IkFJUlBPUlQifQ=="}, "navigation": {"entityId": "99539636", "entityType": "AIRPORT", "localizedName": "Kingston Norman Manley", "relevantFlightParams": {"skyId": "KIN", "entityId": "99539636", "flightPlaceType": "AIRPORT", "localizedName": "Kingston Norman Manley"}, "relevantHotelParams": {"entityId": "27543863", "entityType": "CITY", "localizedName": "Kingston"}}}], "status": true, "message": "Successful"}, "Prague": {"data": [{"presentation": {"title": "Prague", "suggestionTitle": "Prague (PRG)", "subtitle": "Czechia", "id": "eyJlIjoiOTU2NzM1MDIiLCJzIjoiUFJHIiwiaCI6IjI3NTQ2MDMzIiwidCI6IkFJUlBPUlQifQ=="}, "navigation": {"entityId": "95673502", "entityType": "AIRPORT", "localizedName": "Prague", "relevantFlightParams": {"skyId": "PRG", "entityId": "95673502", "flightPlaceType": "AIRPORT", "localizedName": "Prague"}, "relevantHotelParams": {"entityId": "27546033", "entityType": "CITY", "localizedName": "Prague"}}}], "status": true, "message": "Successful"}, "London": {"data": [{"presentation": {"title": "London", "suggestionTitle": "London (Any)", "subtitle": "United Kingdom", "id": "eyJlIjoiMjc1NDQwMDgiLCJzIjoiTE9ORCIsImgiOiIyNzU0NDAwOCIsInQiOiJDSVRZIn0="}, "navigation": {"entityId": "27544008", "entityType": "CITY", "localizedName": "London", "relevantFlightParams": {"skyId": "LOND", "entityId": "27544008", "flightPlaceType": "CITY", "localizedName": "London"}, "relevantHotelParams": {"entityId": "27544008", "entityType": "CITY", "localizedName": "London"}}}, {"presentation": {"title": "London Heathrow", "suggestionTitle": "London Heathrow (LHR)", "subtitle": "United Kingdom", "id": "eyJlIjoiOTU1NjUwNTAiLCJzIjoiTEhSIiwiaCI6IjI3NTQ0MDA4IiwidCI6IkFJUlBPUlQifQ=="}, "navigation": {"entityId": "95565050", "entityType": "AIRPORT", "localizedName": "London Heathrow", "relevantFlightParams": {"skyId": "LHR", "entityId": "95565050", "flightPlaceType": "AIRPORT", "localizedName": "London Heathrow"}, "relevantHotelParams": {"entityId": "27544008", "entityType": "CITY", "localizedName": "London"}}}, {"presentation": {"title": "London Gatwick", "suggestionTitle": "London Gatwick (LGW)", "subtitle": "United Kingdom", "id": "eyJlIjoiOTU1NjUwNTEiLCJzIjoiTEdXIiwiaCI6IjI3NTQ0MDA4IiwidCI6IkFJUlBPUlQifQ=="}, "navigation": {"entityId": "95565051", "entityType": "AIRPORT", "localizedName": "London Gatwick", "relevantFlightParams": {"skyId": "LGW", "entityId": "95565051", "flightPlaceType": "AIRPORT", "localizedName": "London Gatwick"}, "relevantHotelParams": {"entityId": "27544008", "entityType": "CITY", "localizedName": "London"}}}, {"presentation": {"title": "London Stansted", "suggestionTitle": "London Stansted (STN)", "subtitle": "United Kingdom", "id": "eyJlIjoiOTU1NjUwNTIiLCJzIjoiU1ROIiwiaCI6IjI3NTQ0MDA4IiwidCI6IkFJUlBPUlQifQ=="}, "navigation": {"entityId": "95565052", "entityType": "AIRPORT", "localizedName": "London Stansted", "relevantFlightParams": {"skyId": "STN", "entityId": "95565052", "flightPlaceType": "AIRPORT", "localizedName": "London Stansted"}, "relevantHotelParams": {"entityId": "27544008", "entityType": "CITY", "localizedName": "London"}}}, {"presentation": {"title": "London Luton", "suggestionTitle": "London Luton (LTN)", "subtitle": "United Kingdom", "id": "eyJlIjoiOTU1NjUwNTMiLCJzIjoiTFROIiwiaCI6IjI3NTQ0MDA4IiwidCI6IkFJUlBPUlQifQ=="}, "navigation": {"entityId": "95565053", "entityType": "AIRPORT", "localizedName": "London Luton", "relevantFlightParams": {"skyId": "LTN", "entityId": "95565053", "flightPlaceType": "AIRPORT", "localizedName": "London Luton"}, "relevantHotelParams": {"entityId": "27544008", "entityType": "CITY", "localizedName": "London"}}}, {"presentation": {"title": "London City", "suggestionTitle": "London City (LCY)", "subtitle": "United Kingdom", "id": "eyJlIjoiOTU1NjUwNDciLCJzIjoiTENZIiwiaCI6IjI3NTQ0MDA4IiwidCI6IkFJUlBPUlQifQ=="}, "navigation": {"entityId": "95565047", "entityType": "AIRPORT", "localizedName": "London City", "relevantFlightParams": {"skyId": "LCY", "entityId": "95565047", "flightPlaceType": "AIRPORT", "localizedName": "London City"}, "relevantHotelParams": {"entityId": "27544008", "entityType": "CITY", "localizedName": "London"}}}, {"presentation": {"title": "London Southend", "suggestionTitle": "London Southend (SEN)", "subtitle": "United Kingdom", "id": "eyJlIjoiOTU1NjUwNTQiLCJzIjoiU0VOIiwiaCI6IjI3NTQ0MDA4IiwidCI6IkFJUlBPUlQifQ=="}, "navigation": {"entityId": "95565054", "entityType": "AIRPORT", "localizedName": "London Southend", "relevantFlightParams": {"skyId": "SEN", "entityId": "95565054", "flightPlaceType": "AIRPORT", "localizedName": "London Southend"}, "relevantHotelParams": {"entityId": "27544008", "entityType": "CITY", "localizedName": "London"}}}, {"presentation": {"title": "London", "suggestionTitle": "London (YXU)", "subtitle": "Canada", "id": "eyJlIjoiOTU2NzM3NDMiLCJzIjoiWVhVIiwiaCI6IjI3NTM3NDM3IiwidCI6IkFJUlBPUlQifQ=="}, "navigation": {"entityId": "95673743", "entityType": "AIRPORT", "localizedName": "London", "relevantFlightParams": {"skyId": "YXU", "entityId": "95673743", "flightPlaceType": "AIRPORT", "localizedName": "London"}, "relevantHotelParams": {"entityId": "27537437", "entityType": "CITY", "localizedName": "London"}}}], "status": true, "message": "Successful"}}
+{
+    "Madrid": {
+        "data": [
+            {
+                "presentation": {
+                    "title": "Madrid",
+                    "suggestionTitle": "Madrid (MAD)",
+                    "subtitle": "Spain",
+                    "id": "eyJlIjoiOTU1NjUwNzciLCJzIjoiTUFEIiwiaCI6IjI3NTQ0ODUwIiwidCI6IkFJUlBPUlQifQ=="
+                },
+                "navigation": {
+                    "entityId": "95565077",
+                    "entityType": "AIRPORT",
+                    "localizedName": "Madrid",
+                    "relevantFlightParams": {
+                        "skyId": "MAD",
+                        "entityId": "95565077",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "Madrid"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27544850",
+                        "entityType": "CITY",
+                        "localizedName": "Madrid"
+                    }
+                }
+            }
+        ],
+        "status": true,
+        "message": "Successful"
+    },
+    "Barcelona": {
+        "data": [
+            {
+                "presentation": {
+                    "title": "Barcelona",
+                    "suggestionTitle": "Barcelona (BCN)",
+                    "subtitle": "Spain",
+                    "id": "eyJlIjoiOTU1NjUwODUiLCJzIjoiQkNOIiwiaCI6IjI3NTQ4MjgzIiwidCI6IkFJUlBPUlQifQ=="
+                },
+                "navigation": {
+                    "entityId": "95565085",
+                    "entityType": "AIRPORT",
+                    "localizedName": "Barcelona",
+                    "relevantFlightParams": {
+                        "skyId": "BCN",
+                        "entityId": "95565085",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "Barcelona"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27548283",
+                        "entityType": "CITY",
+                        "localizedName": "Barcelona"
+                    }
+                }
+            },
+            {
+                "presentation": {
+                    "title": "Barcelona",
+                    "suggestionTitle": "Barcelona (BLA)",
+                    "subtitle": "Venezuela",
+                    "id": "eyJlIjoiMTI4NjY3MzE2IiwicyI6IkJMQSIsImgiOiIyNzUzOTQ1NiIsInQiOiJBSVJQT1JUIn0="
+                },
+                "navigation": {
+                    "entityId": "128667316",
+                    "entityType": "AIRPORT",
+                    "localizedName": "Barcelona",
+                    "relevantFlightParams": {
+                        "skyId": "BLA",
+                        "entityId": "128667316",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "Barcelona"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27539456",
+                        "entityType": "CITY",
+                        "localizedName": "Barcelona"
+                    }
+                }
+            }
+        ],
+        "status": true,
+        "message": "Successful"
+    },
+    "Paris": {
+        "data": [
+            {
+                "presentation": {
+                    "title": "Paris",
+                    "suggestionTitle": "Paris (Any)",
+                    "subtitle": "France",
+                    "id": "eyJlIjoiMjc1Mzk3MzMiLCJzIjoiUEFSSSIsImgiOiIyNzUzOTczMyIsInQiOiJDSVRZIn0="
+                },
+                "navigation": {
+                    "entityId": "27539733",
+                    "entityType": "CITY",
+                    "localizedName": "Paris",
+                    "relevantFlightParams": {
+                        "skyId": "PARI",
+                        "entityId": "27539733",
+                        "flightPlaceType": "CITY",
+                        "localizedName": "Paris"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27539733",
+                        "entityType": "CITY",
+                        "localizedName": "Paris"
+                    }
+                }
+            },
+            {
+                "presentation": {
+                    "title": "Paris Charles de Gaulle",
+                    "suggestionTitle": "Paris Charles de Gaulle (CDG)",
+                    "subtitle": "France",
+                    "id": "eyJlIjoiOTU1NjUwNDEiLCJzIjoiQ0RHIiwiaCI6IjI3NTM5NzMzIiwidCI6IkFJUlBPUlQifQ=="
+                },
+                "navigation": {
+                    "entityId": "95565041",
+                    "entityType": "AIRPORT",
+                    "localizedName": "Paris Charles de Gaulle",
+                    "relevantFlightParams": {
+                        "skyId": "CDG",
+                        "entityId": "95565041",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "Paris Charles de Gaulle"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27539733",
+                        "entityType": "CITY",
+                        "localizedName": "Paris"
+                    }
+                }
+            },
+            {
+                "presentation": {
+                    "title": "Paris Orly",
+                    "suggestionTitle": "Paris Orly (ORY)",
+                    "subtitle": "France",
+                    "id": "eyJlIjoiOTU1NjUwNDAiLCJzIjoiT1JZIiwiaCI6IjI3NTM5NzMzIiwidCI6IkFJUlBPUlQifQ=="
+                },
+                "navigation": {
+                    "entityId": "95565040",
+                    "entityType": "AIRPORT",
+                    "localizedName": "Paris Orly",
+                    "relevantFlightParams": {
+                        "skyId": "ORY",
+                        "entityId": "95565040",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "Paris Orly"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27539733",
+                        "entityType": "CITY",
+                        "localizedName": "Paris"
+                    }
+                }
+            },
+            {
+                "presentation": {
+                    "title": "Paris Beauvais",
+                    "suggestionTitle": "Paris Beauvais (BVA)",
+                    "subtitle": "France",
+                    "id": "eyJlIjoiOTU1NjYyNzgiLCJzIjoiQlZBIiwiaCI6IjI3NTM5NzMzIiwidCI6IkFJUlBPUlQifQ=="
+                },
+                "navigation": {
+                    "entityId": "95566278",
+                    "entityType": "AIRPORT",
+                    "localizedName": "Paris Beauvais",
+                    "relevantFlightParams": {
+                        "skyId": "BVA",
+                        "entityId": "95566278",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "Paris Beauvais"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27539733",
+                        "entityType": "CITY",
+                        "localizedName": "Paris"
+                    }
+                }
+            },
+            {
+                "presentation": {
+                    "title": "Montego Bay",
+                    "suggestionTitle": "Montego Bay (MBJ)",
+                    "subtitle": "Jamaica",
+                    "id": "eyJlIjoiOTk1Mzk2NjciLCJzIjoiTUJKIiwiaCI6IjI3NTQ0ODY0IiwidCI6IkFJUlBPUlQifQ=="
+                },
+                "navigation": {
+                    "entityId": "99539667",
+                    "entityType": "AIRPORT",
+                    "localizedName": "Montego Bay",
+                    "relevantFlightParams": {
+                        "skyId": "MBJ",
+                        "entityId": "99539667",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "Montego Bay"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27544864",
+                        "entityType": "CITY",
+                        "localizedName": "Montego Bay"
+                    }
+                }
+            },
+            {
+                "presentation": {
+                    "title": "Paros",
+                    "suggestionTitle": "Paros (PAS)",
+                    "subtitle": "Greece",
+                    "id": "eyJlIjoiMTA0MTIwMzMyIiwicyI6IlBBUyIsImgiOiIyNzU0NTI5NCIsInQiOiJBSVJQT1JUIn0="
+                },
+                "navigation": {
+                    "entityId": "104120332",
+                    "entityType": "AIRPORT",
+                    "localizedName": "Paros",
+                    "relevantFlightParams": {
+                        "skyId": "PAS",
+                        "entityId": "104120332",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "Paros"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27545294",
+                        "entityType": "CITY",
+                        "localizedName": "Paros"
+                    }
+                }
+            },
+            {
+                "presentation": {
+                    "title": "Kingston Norman Manley",
+                    "suggestionTitle": "Kingston Norman Manley (KIN)",
+                    "subtitle": "Jamaica",
+                    "id": "eyJlIjoiOTk1Mzk2MzYiLCJzIjoiS0lOIiwiaCI6IjI3NTQzODYzIiwidCI6IkFJUlBPUlQifQ=="
+                },
+                "navigation": {
+                    "entityId": "99539636",
+                    "entityType": "AIRPORT",
+                    "localizedName": "Kingston Norman Manley",
+                    "relevantFlightParams": {
+                        "skyId": "KIN",
+                        "entityId": "99539636",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "Kingston Norman Manley"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27543863",
+                        "entityType": "CITY",
+                        "localizedName": "Kingston"
+                    }
+                }
+            }
+        ],
+        "status": true,
+        "message": "Successful"
+    },
+    "Prague": {
+        "data": [
+            {
+                "presentation": {
+                    "title": "Prague",
+                    "suggestionTitle": "Prague (PRG)",
+                    "subtitle": "Czechia",
+                    "id": "eyJlIjoiOTU2NzM1MDIiLCJzIjoiUFJHIiwiaCI6IjI3NTQ2MDMzIiwidCI6IkFJUlBPUlQifQ=="
+                },
+                "navigation": {
+                    "entityId": "95673502",
+                    "entityType": "AIRPORT",
+                    "localizedName": "Prague",
+                    "relevantFlightParams": {
+                        "skyId": "PRG",
+                        "entityId": "95673502",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "Prague"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27546033",
+                        "entityType": "CITY",
+                        "localizedName": "Prague"
+                    }
+                }
+            }
+        ],
+        "status": true,
+        "message": "Successful"
+    },
+    "London": {
+        "data": [
+            {
+                "presentation": {
+                    "title": "London",
+                    "suggestionTitle": "London (Any)",
+                    "subtitle": "United Kingdom",
+                    "id": "eyJlIjoiMjc1NDQwMDgiLCJzIjoiTE9ORCIsImgiOiIyNzU0NDAwOCIsInQiOiJDSVRZIn0="
+                },
+                "navigation": {
+                    "entityId": "27544008",
+                    "entityType": "CITY",
+                    "localizedName": "London",
+                    "relevantFlightParams": {
+                        "skyId": "LOND",
+                        "entityId": "27544008",
+                        "flightPlaceType": "CITY",
+                        "localizedName": "London"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27544008",
+                        "entityType": "CITY",
+                        "localizedName": "London"
+                    }
+                }
+            },
+            {
+                "presentation": {
+                    "title": "London Heathrow",
+                    "suggestionTitle": "London Heathrow (LHR)",
+                    "subtitle": "United Kingdom",
+                    "id": "eyJlIjoiOTU1NjUwNTAiLCJzIjoiTEhSIiwiaCI6IjI3NTQ0MDA4IiwidCI6IkFJUlBPUlQifQ=="
+                },
+                "navigation": {
+                    "entityId": "95565050",
+                    "entityType": "AIRPORT",
+                    "localizedName": "London Heathrow",
+                    "relevantFlightParams": {
+                        "skyId": "LHR",
+                        "entityId": "95565050",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "London Heathrow"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27544008",
+                        "entityType": "CITY",
+                        "localizedName": "London"
+                    }
+                }
+            },
+            {
+                "presentation": {
+                    "title": "London Gatwick",
+                    "suggestionTitle": "London Gatwick (LGW)",
+                    "subtitle": "United Kingdom",
+                    "id": "eyJlIjoiOTU1NjUwNTEiLCJzIjoiTEdXIiwiaCI6IjI3NTQ0MDA4IiwidCI6IkFJUlBPUlQifQ=="
+                },
+                "navigation": {
+                    "entityId": "95565051",
+                    "entityType": "AIRPORT",
+                    "localizedName": "London Gatwick",
+                    "relevantFlightParams": {
+                        "skyId": "LGW",
+                        "entityId": "95565051",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "London Gatwick"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27544008",
+                        "entityType": "CITY",
+                        "localizedName": "London"
+                    }
+                }
+            },
+            {
+                "presentation": {
+                    "title": "London Stansted",
+                    "suggestionTitle": "London Stansted (STN)",
+                    "subtitle": "United Kingdom",
+                    "id": "eyJlIjoiOTU1NjUwNTIiLCJzIjoiU1ROIiwiaCI6IjI3NTQ0MDA4IiwidCI6IkFJUlBPUlQifQ=="
+                },
+                "navigation": {
+                    "entityId": "95565052",
+                    "entityType": "AIRPORT",
+                    "localizedName": "London Stansted",
+                    "relevantFlightParams": {
+                        "skyId": "STN",
+                        "entityId": "95565052",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "London Stansted"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27544008",
+                        "entityType": "CITY",
+                        "localizedName": "London"
+                    }
+                }
+            },
+            {
+                "presentation": {
+                    "title": "London Luton",
+                    "suggestionTitle": "London Luton (LTN)",
+                    "subtitle": "United Kingdom",
+                    "id": "eyJlIjoiOTU1NjUwNTMiLCJzIjoiTFROIiwiaCI6IjI3NTQ0MDA4IiwidCI6IkFJUlBPUlQifQ=="
+                },
+                "navigation": {
+                    "entityId": "95565053",
+                    "entityType": "AIRPORT",
+                    "localizedName": "London Luton",
+                    "relevantFlightParams": {
+                        "skyId": "LTN",
+                        "entityId": "95565053",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "London Luton"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27544008",
+                        "entityType": "CITY",
+                        "localizedName": "London"
+                    }
+                }
+            },
+            {
+                "presentation": {
+                    "title": "London City",
+                    "suggestionTitle": "London City (LCY)",
+                    "subtitle": "United Kingdom",
+                    "id": "eyJlIjoiOTU1NjUwNDciLCJzIjoiTENZIiwiaCI6IjI3NTQ0MDA4IiwidCI6IkFJUlBPUlQifQ=="
+                },
+                "navigation": {
+                    "entityId": "95565047",
+                    "entityType": "AIRPORT",
+                    "localizedName": "London City",
+                    "relevantFlightParams": {
+                        "skyId": "LCY",
+                        "entityId": "95565047",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "London City"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27544008",
+                        "entityType": "CITY",
+                        "localizedName": "London"
+                    }
+                }
+            },
+            {
+                "presentation": {
+                    "title": "London Southend",
+                    "suggestionTitle": "London Southend (SEN)",
+                    "subtitle": "United Kingdom",
+                    "id": "eyJlIjoiOTU1NjUwNTQiLCJzIjoiU0VOIiwiaCI6IjI3NTQ0MDA4IiwidCI6IkFJUlBPUlQifQ=="
+                },
+                "navigation": {
+                    "entityId": "95565054",
+                    "entityType": "AIRPORT",
+                    "localizedName": "London Southend",
+                    "relevantFlightParams": {
+                        "skyId": "SEN",
+                        "entityId": "95565054",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "London Southend"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27544008",
+                        "entityType": "CITY",
+                        "localizedName": "London"
+                    }
+                }
+            },
+            {
+                "presentation": {
+                    "title": "London",
+                    "suggestionTitle": "London (YXU)",
+                    "subtitle": "Canada",
+                    "id": "eyJlIjoiOTU2NzM3NDMiLCJzIjoiWVhVIiwiaCI6IjI3NTM3NDM3IiwidCI6IkFJUlBPUlQifQ=="
+                },
+                "navigation": {
+                    "entityId": "95673743",
+                    "entityType": "AIRPORT",
+                    "localizedName": "London",
+                    "relevantFlightParams": {
+                        "skyId": "YXU",
+                        "entityId": "95673743",
+                        "flightPlaceType": "AIRPORT",
+                        "localizedName": "London"
+                    },
+                    "relevantHotelParams": {
+                        "entityId": "27537437",
+                        "entityType": "CITY",
+                        "localizedName": "London"
+                    }
+                }
+            }
+        ],
+        "status": true,
+        "message": "Successful"
+    }
+}
