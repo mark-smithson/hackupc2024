@@ -61,7 +61,7 @@ def special_case(orig, dest, depDate, retDate):
 
 
 def get_all_flights(orig, dest, departureDate, returnDate):
-    f = open('flightResults.json')
+    f = open('data/flightResults.json')
 
     # returns JSON object as
     # a dictionary
