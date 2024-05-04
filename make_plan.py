@@ -61,6 +61,7 @@ def special_case(orig, dest, depDate, retDate):
 
 
 def get_all_flights(orig, dest, departureDate, returnDate):
+    depDate = departureDate.strftime('%Y-%m-%d %X')
     f = open('data/flightResults.json')
 
     # returns JSON object as
@@ -78,8 +79,9 @@ def get_all_flights(orig, dest, departureDate, returnDate):
                 flights[flight]['data']['itineraries'][0]['legs'][0]['destination']['city'] == dest:
 
             for it in flights[flight]['data']['itineraries']:
-                if '-'.join(departureDate.split('/')[::-1]) == it['legs'][0]['departure'][:10] and '-'.join(
-                        returnDate.split('/')[::-1]) == it['legs'][1]['departure'][:10]:
+                if departureDate.strftime('%Y-%m-%d %X')[:10] == it['legs'][0]['departure'][:10] \
+                            and returnDate.strftime('%Y-%m-%d %X')[:10] == it['legs'][1]['departure'][:10]:
+
                     flightPossible = {'price': it['price']['formatted'], 'go_stopCount': it['legs'][0]['stopCount'],
                                       'return_stopCount': it['legs'][1]['stopCount'],
                                       'go_departureTime': it['legs'][0]['departure'],
