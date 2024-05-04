@@ -47,6 +47,15 @@ def suggest_flight(orig, dest):
     return bestFlight
 
 
+def get_allEvents(city, arrivalTime, departureTime):
+    events = pd.read_csv('data/generated_events_500.csv')
+    availableEvents = events[(events['City'] == city) & (events['Local Date'] >= arrivalTime[:10]) & (
+                events['Local Date'] <= departureTime[:10]) & (events['Local Time Start'] >= arrivalTime[-8:]) & (
+                                         events['Local Time End'] <= departureTime[-8:])]
+
+    return availableEvents
+
+
 def get_fake_events():
     events = {
         "Barcelona": [
