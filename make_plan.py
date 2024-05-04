@@ -190,8 +190,7 @@ class Trip:
         self.friends = []
 
     def add_trip_features(self, trips, people_in_cities, events, embedding_model):
-        self.depart_flight = suggest_flight(self.depart_city, self.arrival_city)
-        self.return_flight = suggest_flight(self.arrival_city, self.depart_city)
+        self.flight = best_flight(self.depart_city, self.arrival_city, self.depart_date, self.return_date)
         previous_interests = []
         previous_events = []
 
