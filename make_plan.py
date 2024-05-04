@@ -180,9 +180,8 @@ class Trip:
     ):
         self.user = user
         self.interests = interests
-        self.depart_flight = None
+        self.flight = None
         self.depart_city = depart_city
-        self.return_flight = None
         self.arrival_city = arrival_city
         self.depart_date = depart_date
         self.return_date = return_date
