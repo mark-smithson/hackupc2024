@@ -283,7 +283,7 @@ Make a vacation plan for {user} lasting {n_days} days to attend those events. Re
         #     "<|end_header_id|>\n\n"
         # )[-1]
         generated_ids = answers_model.generate(
-            encodeds, max_new_tokens=800, do_sample=True
+            encodeds, max_new_tokens=10, do_sample=True
         )
         decoded = tokenizer.batch_decode(generated_ids)[0].split(
             "<|end_header_id|>\n\n"
@@ -292,12 +292,7 @@ Make a vacation plan for {user} lasting {n_days} days to attend those events. Re
         return decoded, question
 
 
-# from accelerate import init_empty_weights
-from transformers import AutoConfig, AutoModelForCausalLM
-
-# from accelerate import load_checkpoint_and_dispatch
-# from transformers.integrations import HfDeepSpeedConfig
-# import deepspeed
+from transformers import AutoModelForCausalLM
 
 
 def init_llm_models():
@@ -320,10 +315,10 @@ def init_llm_models():
     # dschf = HfDeepSpeedConfig(ds_config)  # keep this object alive
     answers_model = AutoModelForCausalLM.from_pretrained(
         model_name,
-        device_map="auto",
-        torch_dtype=torch.bfloat16,
-        load_in_4bit=True,
-        offload_state_dict=True,
+        device_map="mps",
+        torch_dtype=torch.float16,
+        # load_in_4bit=True,
+        # offload_state_dict=True,
         # llm_int8_enable_fp32_cpu_offload=True,
     )
 
